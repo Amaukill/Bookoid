@@ -2,6 +2,7 @@ package com.example.bookoid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Display
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -17,32 +18,39 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         auth = Firebase.auth;
-        var mail = findViewById<EditText>(R.id.mail);
-        var password = findViewById<EditText>(R.id.password);
+        val mail = findViewById<EditText>(R.id.mail);
+        val password = findViewById<EditText>(R.id.password);
         findViewById<Button>(R.id.login).setOnClickListener() {
             if (!mail.text.toString().contains("@")) {
-                Toast.makeText(this, "l'email est invalide", Toast.LENGTH_SHORT).show()
-            } else {
+                displayToast(getString(R.string.InvalidMail))
+            }
+            else if (mail.text.toString().isEmpty()){
+                displayToast(getString(R.string.EmptyMail))
+            }
+            else if (password.text.toString().isEmpty()){
+                displayToast(getString(R.string.EmptyPassword))
+            }
+            else {
                 auth.signInWithEmailAndPassword(mail.text.toString(), password.text.toString())
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            Toast.makeText(
-                                this,
-                                "Vous êtes connecté",
-                                Toast.LENGTH_LONG
-                            ).show()
+                            displayToast(getString(R.string.Connected))
                         } else {
-                            Toast.makeText(
-                                this,
-                                "Mauvais Email ou Mot de passe",
-                                Toast.LENGTH_LONG
-                            ).show()
+                            displayToast(getString(R.string.ErrorConnection))
                         }
                     }
             }
-        }
-    }
 
+        }
+
+    }
+    fun displayToast(message : String){
+        Toast.makeText(
+            this,
+            message,
+            Toast.LENGTH_LONG
+        ).show()
+    }
 
 
 }

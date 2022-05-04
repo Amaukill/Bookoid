@@ -3,4 +3,9 @@
     <string name="mail">Email</string>
     <string name="password">Mot de passe</string>
     <string name="connect">Connexion</string>
+    <string name="ErrorConnection">Mauvais Email ou Mot de passe</string>
+    <string name="InvalidMail">Email invalide</string>
+    <string name="EmptyPassword">Mot de passe non remplis</string>
+    <string name="EmptyMail">Email non remplis</string>
+    <string name="Connected">Connexion réussie</string>
 </resources>
