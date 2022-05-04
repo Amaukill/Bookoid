@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "906860906759",
+    "project_id": "bookoid-fa389",
+    "storage_bucket": "bookoid-fa389.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906860906759:android:5e3ab7562e42d9f7179da2",
+        "android_client_info": {
+          "package_name": "com.example.bookoid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906860906759-pphdf0kr416n7sagikvn4cgdt6kjbbgk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACpvtl4MHYgwFv2sqxuIHajiBkqvlzI5c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "906860906759-pphdf0kr416n7sagikvn4cgdt6kjbbgk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
