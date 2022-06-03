@@ -1,18 +1,20 @@
 package com.example.bookoid
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Display
+
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth;
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,6 +37,9 @@ class MainActivity : AppCompatActivity() {
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
                             displayToast(getString(R.string.Connected))
+                            val intent = Intent(this,ListBookActivity::class.java)
+                            startActivity(intent)
+
                         } else {
                             displayToast(getString(R.string.ErrorConnection))
                         }
@@ -44,12 +49,12 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-    fun displayToast(message : String){
-        Toast.makeText(
-            this,
-            message,
-            Toast.LENGTH_LONG
-        ).show()
+
+    private fun displayToast(message : String){
+        AlertDialog.Builder(this).create().run{
+            setMessage(message)
+            show()
+        }
     }
 
 
