@@ -7,25 +7,28 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 
-class ListBookActivity : AppCompatActivity() , OnGetDatabase {
-
+class ListBookActivity : AppCompatActivity() , OnGetDataBase  {
+    private  val db = Database()
+    private var bookAdapter:BookAdapter?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listbook)
-        val db = Database()
         db.listener=this
-        val books = db.getBooks()
-        val listBook =findViewById<RecyclerView>(R.id.listBooks)
-        val layoutManager = LinearLayoutManager(this)
+        db.getBooks()
+        var listBook =findViewById<RecyclerView>(R.id.listBooks)
+        var layoutManager = LinearLayoutManager(this)
         layoutManager.orientation=LinearLayoutManager.VERTICAL
         listBook.layoutManager = layoutManager
-        val bookAdapter=BookAdapter(books)
+        bookAdapter = BookAdapter()
+
+
         listBook.adapter = bookAdapter
 
-    }
-
-    override fun getBooks() {
 
     }
 
+    override fun getBooks(books: List<BookModel>) {
+        bookAdapter?.dataSet = books
+        bookAdapter?.notifyDataSetChanged()
+    }
 }

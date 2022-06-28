@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class BookAdapter(private val dataSet : MutableList<BookModel>) : RecyclerView.Adapter<BookViewHolder>() {
-
+class BookAdapter() : RecyclerView.Adapter<BookViewHolder>() {
+    var dataSet = listOf<BookModel>()
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): BookViewHolder {
         val context=viewGroup.context
         val itemView= LayoutInflater.from(context).inflate(R.layout.viewbook,viewGroup,false)
