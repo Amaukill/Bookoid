@@ -1,5 +1,10 @@
 package com.example.bookoid
 
- data class BookModel(
-    var Auteur:String="",var Titre :String="" , var Image:String="",var ID :String=""
+data class BookModel(
+    val Auteur: String? = null,
+    val Titre: String? = null,
+    val Image: String? = null,
+    val ID: String? = null,
+    val Description: String? = null,
+    var Vue: Boolean? = null
 )

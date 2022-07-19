@@ -1,5 +1,6 @@
 package com.example.bookoid
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -18,17 +19,19 @@ class ListBookActivity : AppCompatActivity(), OnGetDataBase {
         db.getBooks()
         var listBook = findViewById<RecyclerView>(R.id.listBooks)
         var layoutManager = LinearLayoutManager(this)
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
         listBook.layoutManager = layoutManager
         bookAdapter = BookAdapter()
         listBook.adapter = bookAdapter
         bookAdapter?.run {
             setOnItemClickListener(object : BookAdapter.OnItemClickListener {
                 override fun onItemClick(position: Int) {
-                    Toast.makeText(
+                    val intent= Intent(this@ListBookActivity,DetailsBookActivity::class.java)
+                    intent.putExtra("id",this@run.dataSet[position].ID)
+                    startActivity(intent)
+                    /*Toast.makeText(
                         this@ListBookActivity,
-                        "livre ${this@run.dataSet[position].Titre}",Toast.LENGTH_SHORT
-                    ).show()
+                        "livre ${this@run.dataSet[position].ID}",Toast.LENGTH_SHORT
+                    ).show()*/
                 }
             })
         }
@@ -41,5 +44,12 @@ class ListBookActivity : AppCompatActivity(), OnGetDataBase {
             notifyDataSetChanged()
         }
 
+    }
+
+    override fun getOneBook(id: String, book: BookModel) {
+
+    }
+
+    override fun updateBookView(book: BookModel) {
     }
 }

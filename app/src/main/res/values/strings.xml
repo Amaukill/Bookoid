@@ -8,4 +8,7 @@
     <string name="EmptyPassword">Le mot de passe est vide</string>
     <string name="EmptyMail">L\'email est vide</string>
     <string name="Connected">Connexion réussie</string>
+    <string name="Autor">Ecrit par</string>
+    <string name="Title">Titre : </string>
+    <string name="Synopsis">Description : </string>
 </resources>
