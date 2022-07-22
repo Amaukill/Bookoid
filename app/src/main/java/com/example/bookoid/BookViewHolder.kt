@@ -16,13 +16,14 @@ class BookViewHolder(view: View, listener: BookAdapter.OnItemClickListener) :
     fun setViewBook(model: BookModel) {
         book=model
         titre.text = model.Titre
-        Picasso.get().load(model.Image).resize(500, 500).into(imageView);
+        Picasso.get().load(model.Image).resize(500, 500).into(imageView)
         auteur.text = model.Auteur
-
+        model.Vue?.let { titre.design(it) }
+        model.Vue?.let { auteur.design(it) }
         }
 
-        fun TextView.design(){
-            if(book.Vue!!){
+       private fun TextView.design(bool: Boolean){
+            if(bool){
                 setBackgroundColor(resources.getColor(R.color.green))
             }
             else{

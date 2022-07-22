@@ -7,30 +7,31 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@android:color/holo_red_dark" />
+        android:background="@android:color/black" />
 <TextView
     android:id="@+id/book_title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textAlignment="center"
-    android:textSize="24dp"
+    android:textSize="24sp"
     android:textStyle="bold"
     />
 
     <ImageView
         android:id="@+id/book_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:contentDescription="image"/>
     <TextView
         android:id="@+id/book_auteur"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="italic"
         />
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@android:color/holo_red_dark" />
+        android:background="@android:color/black" />
 </LinearLayout>

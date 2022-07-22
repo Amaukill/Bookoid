@@ -11,4 +11,7 @@
     <string name="Autor">Ecrit par</string>
     <string name="Title">Titre : </string>
     <string name="Synopsis">Description : </string>
+    <string name="Date">Date de parution : </string>
+    <string name="vide">non indiqué </string>
+    <string name="disconnect">Déconnexion</string>
 </resources>

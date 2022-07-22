@@ -19,10 +19,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        auth = Firebase.auth;
-        val mail = findViewById<EditText>(R.id.mail);
-        val password = findViewById<EditText>(R.id.password);
-        findViewById<Button>(R.id.login).setOnClickListener() {
+        auth = Firebase.auth
+        val mail = findViewById<EditText>(R.id.mail)
+        val password = findViewById<EditText>(R.id.password)
+        findViewById<Button>(R.id.login).setOnClickListener{
             if (!mail.text.toString().contains("@")) {
                 displayToast(getString(R.string.InvalidMail))
             }
@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                         if (task.isSuccessful) {
                             displayToast(getString(R.string.Connected))
                             val intent = Intent(this,ListBookActivity::class.java)
+
                             startActivity(intent)
 
                         } else {
@@ -50,6 +51,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        findViewById<EditText>(R.id.mail).text = null
+        findViewById<EditText>(R.id.password).text = null
+
+
+    }
     private fun displayToast(message : String){
         AlertDialog.Builder(this).create().run{
             setMessage(message)

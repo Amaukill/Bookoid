@@ -1,7 +1,6 @@
 package com.example.bookoid
 
-import android.util.Log
-import com.google.firebase.firestore.FirebaseFirestore
+
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.firestore.ktx.firestore
 
@@ -33,7 +32,7 @@ class Database {
                     retrieveBooks(
                         it.result.documents.map { document ->
                             BookModel(
-                                ID = document.id.toString(),
+                                ID = document.id,
                                 Auteur = document.data?.get("auteur").toString(),
                                 Titre = document.data?.get("titre").toString(),
                                 Image = document.data?.get("image").toString(),
@@ -53,11 +52,12 @@ class Database {
                     retrieveOneBook(id,
                         it.result.run {
                             BookModel(
-                                ID = id.toString(),
+                                ID = id,
                                 Description = this.data?.get("description").toString(),
                                 Auteur = this.data?.get("auteur").toString(),
                                 Titre = this.data?.get("titre").toString(),
                                 Image = this.data?.get("image").toString(),
+                                Date = this.data?.get("date").toString(),
                                 Vue = this.data?.get("vue").toString().toBoolean()
                             )
                         })

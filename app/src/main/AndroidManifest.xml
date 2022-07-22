@@ -19,6 +19,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".DetailsBookActivity"
+            android:exported="true"
+            android:parentActivityName=".ListBookActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ListBookActivity"
             android:exported="true">
             <intent-filter>
@@ -26,14 +36,7 @@
 
             </intent-filter>
         </activity>
-        <activity
-            android:name=".DetailsBookActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

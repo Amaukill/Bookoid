@@ -2,10 +2,9 @@ package com.example.bookoid
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 
-class BookAdapter() : RecyclerView.Adapter<BookViewHolder>() {
+class BookAdapter : RecyclerView.Adapter<BookViewHolder>() {
     private lateinit var mListener: OnItemClickListener
 
     interface OnItemClickListener {
